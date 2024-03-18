@@ -16,19 +16,19 @@ The Table Bank dataset totally consists of 417,234 high quality labeled tables a
 
 The authors employ an intuitive approach to manipulate the source code by integrating bounding boxes using the markup language embedded within each document. Specifically, for Word documents, bounding boxes are added to tables by editing the internal Office XML code within each document. 
 
-<img src="https://github.com/dataset-ninja/table-bank/assets/120389559/ce5afe44-71bb-456b-842a-a7326179a8a2" alt="image" width="800">
+<img src="https://github.com/dataset-ninja/table-bank/assets/120389559/ce5afe44-71bb-456b-842a-a7326179a8a2" alt="image" width="600">
 
 <span style="font-size: smaller; font-style: italic;">Data processing pipeline.</span>
 
 In essence, each '.docx' file is a compressed archive file, containing a 'document.xml' file within the decompressed folder. Within this XML file, code snippets enclosed between the tags '<w:tbl>' and '</w:tbl>' typically represent tables in the Word document. The authors modify these code snippets within the XML file, altering the table borders to a distinct color compared to other parts of the document. Ultimately, they extract PDF pages from Word documents that contain at least one table on each page.
 
-<img src="https://github.com/dataset-ninja/table-bank/assets/120389559/0192d2fb-e652-447b-874b-65fd39ce518c" alt="image" width="800">
+<img src="https://github.com/dataset-ninja/table-bank/assets/120389559/0192d2fb-e652-447b-874b-65fd39ce518c" alt="image" width="500">
 
 <span style="font-size: smaller; font-style: italic;">The tables can be identified and labeled from “<w:tbl>” and “</w:tbl>” tags in the Office XML code</span>
 
 For Latex documents, the authors use a special command in the Tex grammar ‘fcolorbox’ to add the bounding box to tables. Typically, the tables in Latex documents are usually in the format as follows:
 
-<img src="https://github.com/dataset-ninja/table-bank/assets/120389559/136317af-e821-4195-8fa0-f26cf83c2094" alt="image" width="800">
+<img src="https://github.com/dataset-ninja/table-bank/assets/120389559/136317af-e821-4195-8fa0-f26cf83c2094" alt="image" width="500">
 
 They insert the ‘fcolorbox’ command to the table’s code as follows and re-compile the Latex documents. Meanwhile, the authors also define a special color so that the border is distinguishable. The overall process is similar to Word documents. Finally, they get PDF pages from Latex documents that contain at least one table on each page.
 
